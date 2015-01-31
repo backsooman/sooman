@@ -1,0 +1,32 @@
+package music;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class ActionEventHandler implements ActionListener{
+	int count=0;
+	public void actionPerformed(ActionEvent e){
+		Music.playSound();
+	}
+}
+class JButtonActionEvent{
+	public static void main(String[]args){
+		JFrame frm=new JFrame("music");
+		frm.setBounds(120,120,250,150);
+		frm.setLayout(new FlowLayout());
+		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JButton btn=new JButton("Start");
+		
+		ActionListener actionHandler=new ActionEventHandler();
+		
+		btn.addActionListener(actionHandler);
+		
+		frm.add(btn);
+		
+		frm.setVisible(true);
+	}
+}
